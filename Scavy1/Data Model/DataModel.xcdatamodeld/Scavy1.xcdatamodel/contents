@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Kegiatan" representedClassName="Kegiatan" syncable="YES" codeGenerationType="class">
+        <attribute name="done" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="kegiatans" maxCount="1" deletionRule="Nullify" destinationEntity="Pertemuan" inverseName="locals" inverseEntity="Pertemuan"/>
+    </entity>
+    <entity name="Kelas" representedClassName=".Kelas" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="pertemuans" toMany="YES" deletionRule="Nullify" destinationEntity="Pertemuan" inverseName="parentKelas" inverseEntity="Pertemuan"/>
+    </entity>
+    <entity name="Pertemuan" representedClassName="Pertemuan" syncable="YES" codeGenerationType="class">
+        <attribute name="done" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="locals" toMany="YES" deletionRule="Nullify" destinationEntity="Kegiatan" inverseName="kegiatans" inverseEntity="Kegiatan"/>
+        <relationship name="parentKelas" maxCount="1" deletionRule="Nullify" destinationEntity="Kelas" inverseName="pertemuans" inverseEntity="Kelas"/>
+    </entity>
+    <elements>
+        <element name="Kelas" positionX="-239.3359375" positionY="-9.36328125" width="128" height="73"/>
+        <element name="Pertemuan" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Kegiatan" positionX="142.8046875" positionY="114.7734375" width="128" height="88"/>
+    </elements>
+</model>
